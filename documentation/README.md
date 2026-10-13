@@ -1,11 +1,17 @@
 <div align="center">
 
-# 🌿 EcoTrack ♻️
-### Intelligent Household Waste Management System
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:14532d,50:16a34a,100:86efac&height=210&section=header&text=EcoTrack&fontSize=58&fontColor=ffffff&fontAlignY=38&desc=Intelligent%20Household%20Waste%20Management&descAlignY=60&descSize=18" alt="EcoTrack green banner" width="100%">
 
-**Record waste · Understand patterns · Explore better habits**
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PyQt6-Desktop%20App-41CD52?style=for-the-badge&logo=qt&logoColor=white" alt="PyQt6">
+  <img src="https://img.shields.io/badge/SQLite-Local%20Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/Machine%20Learning-scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" alt="scikit-learn">
+</p>
 
-*An educational desktop application that combines household waste tracking, visual analytics, practical suggestions, and introductory machine-learning features.*
+### ♻️ Record waste · Understand patterns · Explore better habits
+
+*An educational desktop application combining household waste tracking, visual analytics, practical suggestions, and introductory machine-learning features.*
 
 </div>
 
@@ -16,6 +22,12 @@
 EcoTrack is the project-facing name used in this README. The supplied source-code explainer refers to the application as **EcoMind AI — Intelligent Waste Management System** and uses internal names such as `EcoMindApp` and `ecomind.db`. This README documents the functionality described in that explainer; the internal code/database names are not assumed to have been renamed.
 
 The application helps a household or community organise waste records, see how much waste is marked as recycled, compare categories, and explore potential reduction scenarios. It stores information locally and uses charts and machine-learning routines to make recorded patterns easier to review.
+
+<div align="center">
+  <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=85" alt="Recycling bins representing responsible waste management" width="88%">
+  <br>
+  <sub>Small, informed choices can help build better waste habits.</sub>
+</div>
 
 > 🌱 **Project principle:** AI can help people notice patterns, but its predictions are estimates—not guarantees—and good decisions still depend on reliable records and human judgment.
 
@@ -45,9 +57,6 @@ The application helps a household or community organise waste records, see how m
 | 📄 **Word Export** | Exports a waste report as a Word document. |
 | 📷 **Optional camera capture** | Detects a sufficiently large scene/background change and captures a frame for a record. |
 
-<div align="center">
-</div>
-
 ## 🔄 How It Works
 
 ```mermaid
@@ -59,6 +68,12 @@ flowchart TD
     E --> F["🧠 Run eligible ML analysis"]
     F --> G["💡 Review insights and what-if scenarios"]
     G --> H["📄 Export a report"]
+
+    style A fill:#dcfce7,stroke:#15803d,color:#14532d
+    style C fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style E fill:#fef3c7,stroke:#d97706,color:#78350f
+    style F fill:#f3e8ff,stroke:#9333ea,color:#581c87
+    style G fill:#dcfce7,stroke:#15803d,color:#14532d
 ```
 
 1. Choose a household and enter the waste date, category, weight, and recycling status.
@@ -78,6 +93,12 @@ The project includes three different machine-learning tasks. They have different
 | 🔎 Unusual-pattern detection | `IsolationForest` | Reviews daily totals, recycling rate, and category totals to flag a potentially unusual latest day. | At least **5 distinct dates**. |
 | 📅 Next-day waste estimate | `RandomForestRegressor` | Uses the previous three daily totals and their average to estimate the next day's total. | At least **8 distinct dates**. |
 | 🖼️ Image-category prediction | `RandomForestClassifier` | Learns from simple image features, including colour histograms and average variation, using saved labelled images. | At least **3 labelled images in each of at least 2 categories**. |
+
+<div align="center">
+  <img src="https://img.shields.io/badge/AI-Anomaly%20Detection-7c3aed?style=flat-square&logo=googleanalytics&logoColor=white" alt="Anomaly detection">
+  <img src="https://img.shields.io/badge/ML-Waste%20Estimation-2563eb?style=flat-square&logo=chartdotjs&logoColor=white" alt="Waste estimation">
+  <img src="https://img.shields.io/badge/Vision-Image%20Classification-0f766e?style=flat-square&logo=opencv&logoColor=white" alt="Image classification">
+</div>
 
 ### Important AI notes
 
@@ -107,7 +128,7 @@ The application’s ordinary metrics are calculated from saved records:
 - **Default data:** when the database is first created, the program seeds **five default houses and ten example waste records** dated **1–5 October 2026**.
 - **Existing database behaviour:** if a database already contains houses, the seed routine does not add that starter set again.
 
-The starter records are demonstration data, not real household measurements. Check the database before presenting screenshots or metrics as real-world results.
+> ⚠️ The starter records are demonstration data, not real household measurements. Check the database before presenting screenshots or metrics as real-world results.
 
 ## 🧱 Project Architecture
 
@@ -121,6 +142,10 @@ The starter records are demonstration data, not real household measurements. Che
 | `GraphWindow` / charts | Uses Matplotlib to display category and date-based charts. |
 
 ## 🛠️ Technology Stack
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=python,sqlite,opencv&theme=light" alt="Python, SQLite and OpenCV icons">
+</div>
 
 | Technology | Role |
 | --- | --- |
@@ -162,7 +187,7 @@ If it does not, install the dependencies listed for the supplied application:
 python -m pip install PyQt6 numpy scikit-learn opencv-python matplotlib python-docx
 ```
 
-> Package installation may vary by Python version and operating system. The supplied explainer does not specify pinned package versions.
+> 📦 Package installation may vary by Python version and operating system. The supplied explainer does not specify pinned package versions.
 
 ### 3. Run the application
 
@@ -178,11 +203,11 @@ python3 main.py
 
 ### 4. Explore the app
 
-- Open the dashboard and review the sample metrics.
-- Add a waste record for a household.
-- Inspect analytics, charts, history, and the recycling tracker.
-- Try the What-if Lab and report export.
-- Return after adding more records to see whether ML features have enough data to become ready.
+- 🏠 Open the dashboard and review the sample metrics.
+- ➕ Add a waste record for a household.
+- 📊 Inspect analytics, charts, history, and the recycling tracker.
+- 🧪 Try the What-if Lab and report export.
+- 🧠 Return after adding more records to see whether ML features have enough data to become ready.
 
 ## 📋 Suggested Project Structure
 
@@ -200,6 +225,9 @@ EcoTrack/
 ## 🌍 Sustainability Connection
 
 <div align="center">
+  <img src="https://img.shields.io/badge/SDG%2011-Sustainable%20Cities-E76F51?style=for-the-badge" alt="SDG 11 Sustainable Cities">
+  <img src="https://img.shields.io/badge/SDG%2012-Responsible%20Consumption-BF8B2E?style=for-the-badge" alt="SDG 12 Responsible Consumption">
+  <img src="https://img.shields.io/badge/SDG%2013-Climate%20Action-3F7E44?style=for-the-badge" alt="SDG 13 Climate Action">
 </div>
 
 The project conceptually relates to:
@@ -253,7 +281,9 @@ These are ideas for future development, not claims about current implementation.
 
 <div align="center">
 
-# 🌿 EcoTrack ♻️
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:86efac,50:16a34a,100:14532d&height=130&section=footer" alt="Green footer decoration" width="100%">
+
+### 🌿 EcoTrack ♻️
 
 **Understand waste. Review patterns. Make better-informed choices.**
 
